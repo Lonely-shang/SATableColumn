@@ -1,3 +1,5 @@
+import type { AsTableColumnConfig } from "packages/types";
+
 const asTableColumnConfig: AsTableColumnConfig = {
   // 字体大小默认14
   fontSize: 14,

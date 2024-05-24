@@ -5,21 +5,26 @@ import HelloWorld from './components/HelloWorld.vue'
 import AllFit from './views/allFit/allFit.vue'
 import PartFit from './views/partFit/PartFit.vue'
 import PartNotFit from './views/partNotFit/PartNotFit.vue'
+import type { TabsPaneContext } from 'element-plus'
 const activeNames = ref('all-fit')
+const change = (pane: TabsPaneContext, ev: Event) => {
+  console.log(pane.paneName);
+  
+}
 </script>
 
 <template>
-  <!-- <header>
+  <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
-  </header> -->
+  </header>
 
-  <!-- <main> -->
+  <main>
     <!-- <TheWelcome /> -->
-    <el-tabs v-model="activeNames" type="border-card">
+    <el-tabs v-model="activeNames" @tab-click="change" type="border-card">
       <el-tab-pane label="全部自适应 (默认)" name="all-fit">
         <div class="el-table">固定宽度者以宽度为准, 非固定宽度者自适应</div>
         <all-fit />
@@ -36,7 +41,7 @@ const activeNames = ref('all-fit')
         <part-fit />
       </el-tab-pane>
     </el-tabs>
-  <!-- </main> -->
+  </main>
 </template>
 
 <style scoped>

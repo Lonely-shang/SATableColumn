@@ -1,6 +1,6 @@
 <template>
   <div style="width: 900px;">
-    <el-table border :data="mockData.tableData">
+    <el-table border :data="data">
     <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
     <sa-table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></sa-table-column>
     <sa-table-column label="定宽100少" prop="fixedLess" width="100"></sa-table-column>
@@ -30,6 +30,15 @@
 </template>
 <script setup lang="ts">
 defineOptions({ name: 'AllFit' })
+import { onMounted, reactive } from 'vue';
 import mockData from '../../mock/mockData'
+const data = reactive([
+  ...mockData.tableData
+])
+onMounted(() => {
+  setTimeout(() => {
+    data.push(...mockData.copyData)
+  }, 1000)
+})
 </script>
 <style></style>

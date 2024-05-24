@@ -57,7 +57,7 @@ export default {
       freedomMore2: 'This is also another very very long sentence with many many words.',
       fixedMore: '就像我搞出这个表格一样很开心',
       fix: '贴边呢',
-      placeholder: '占位用的',
+      placeholder: '占位用的0000000000000000000000',
     },
     {
       fixedLess: '定宽字不多',

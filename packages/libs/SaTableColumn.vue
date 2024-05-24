@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
   defineOptions({ name: 'SaTableColumn' })
+import type { AsTableColumnProps } from 'packages/types';
   import { asTableColumnConfig, getColumnContentLength, transChar } from '../utils';
   import { computed, getCurrentInstance, nextTick, reactive, useAttrs, useSlots, watch } from 'vue'
 
@@ -29,10 +30,6 @@
 
   const attrs = useAttrs()
   const { default: defaultSlot, header: headerSlot } = useSlots()
-
-  interface AsTableColumnProps {
-    label: string
-  }
 
   const props = withDefaults(defineProps<AsTableColumnProps>(),{
     label: () => '请设置label属性'

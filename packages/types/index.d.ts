@@ -1,4 +1,4 @@
-interface AsTableColumnConfig {
+export interface AsTableColumnConfig {
   fontSize?: number
   fontRate: {
     CHAR_RATE: number
@@ -6,6 +6,6 @@ interface AsTableColumnConfig {
     OTHER_RATE: number
   }
 }
-interface AsTableColumnProps {
+export interface AsTableColumnProps {
  label: string
 }

@@ -1,8 +1,27 @@
 {
   "name": "sa-table-column",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "table",
+    "column",
+    "element-plus",
+    "auto-width",
+    "self-adaption"
+  ],
+  "files": ["dist"],
+  "main": "./dist/sa-table-column.umd.cjs",
+  "module": "./dist/sa-table-column.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/sa-table-column.js",
+      "require": "./dist/sa-table-column.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -30,6 +49,7 @@
     "prettier": "^3.2.5",
     "typescript": "~5.4.0",
     "vite": "^5.2.8",
+    "vite-plugin-dts": "^3.9.1",
     "vue-tsc": "^2.0.11"
   }
 }
