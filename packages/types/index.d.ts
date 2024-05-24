@@ -1,8 +1,11 @@
 interface AsTableColumnConfig {
   fontSize?: number
-  fontRate?: {
+  fontRate: {
     CHAR_RATE: number
     NUM_RATE: number
     OTHER_RATE: number
   }
+}
+interface AsTableColumnProps {
+ label: string
 }

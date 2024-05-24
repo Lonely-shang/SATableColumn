@@ -9,4 +9,24 @@ const asTableColumnConfig: AsTableColumnConfig = {
   }
 }
 
-export { asTableColumnConfig }
+const transChar = (char: string): string => encodeURIComponent(char).replace(/[^a-zA-z]/g, 'eUC')
+
+const getColumnContentLength = (data: any[], fontRate: AsTableColumnConfig['fontRate']): number => {
+  return data.reduce((max: number, item) => {
+    if (!item) return max;
+    const itemStr = item.toString();
+    const charLength = getStringCharLength(itemStr);
+    const numberLength = getStrNumLength(itemStr);
+    const otherLength = itemStr.length - charLength - numberLength;
+    let newLength = charLength * fontRate.CHAR_RATE + numberLength * fontRate.NUM_RATE + otherLength * fontRate.OTHER_RATE;
+    if (itemStr.includes('\n')) newLength = getColumnContentLength(itemStr.split('\n'), fontRate);
+    if (newLength > max) return newLength;
+    return max;
+  }, 0)
+}
+
+const getStringCharLength = (str: string): number => str.match(/[\u2E80-\u9FFF]/g)?.length || 0
+
+const getStrNumLength = (str: string): number => str.match(/\d/g)?.length || 0
+
+export { asTableColumnConfig, getColumnContentLength, transChar }

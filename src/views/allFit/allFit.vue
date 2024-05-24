@@ -1,12 +1,35 @@
 <template>
-  <el-table border>
-    <sa-table-column prop="date" label="编号" width="180" />
-    <el-table-column prop="date" label="日期" width="180"></el-table-column>
-    <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-    <el-table-column prop="address" label="地址"></el-table-column>
+  <div style="width: 900px;">
+    <el-table border :data="mockData.tableData">
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></sa-table-column>
+    <sa-table-column label="定宽100少" prop="fixedLess" width="100"></sa-table-column>
+    <sa-table-column label="固定宽度100-多" prop="fixedMore" width="100"></sa-table-column>
+    <sa-table-column label="自由宽度-少1" prop="freedomLess1"></sa-table-column>
+    <sa-table-column label="自由宽度-少2" prop="freedomLess2"></sa-table-column>
+    <sa-table-column :fontSize="20" label="自由宽度-多1" prop="freedomMore1"></sa-table-column>
+    <sa-table-column :fontRate="{OTHER_RATE: 1.5}" label="freedom-more2" prop="freedomMore2"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="贴边 (自定义)" fixed="right">
+      <template #default="scope">
+        <el-button size="small">{{scope.row.fix}}</el-button>
+      </template>
+    </sa-table-column>
   </el-table>
+  </div>
 </template>
 <script setup lang="ts">
 defineOptions({ name: 'AllFit' })
+import mockData from '../../mock/mockData'
 </script>
 <style></style>
