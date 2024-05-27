@@ -1,4 +1,4 @@
-import type { AsTableColumnConfig } from "packages/types";
+import type { AsTableColumnConfig, AsTableColumnFontRate } from "packages/types";
 
 const asTableColumnConfig: AsTableColumnConfig = {
   // 字体大小默认14
@@ -13,7 +13,7 @@ const asTableColumnConfig: AsTableColumnConfig = {
 
 const transChar = (char: string): string => encodeURIComponent(char).replace(/[^a-zA-z]/g, 'eUC')
 
-const getColumnContentLength = (data: any[], fontRate: AsTableColumnConfig['fontRate']): number => {
+const getColumnContentLength = (data: any[], fontRate: AsTableColumnFontRate): number => {
   return data.reduce((max: number, item) => {
     if (!item) return max;
     const itemStr = item.toString();

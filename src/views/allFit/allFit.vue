@@ -1,7 +1,7 @@
 <template>
   <div style="width: 900px;">
     <el-table border :data="data">
-    <sa-table-column label="占位列" prop="placeholder"></sa-table-column>
+    <sa-table-column label="占位列" prop="placeholder" :fontRate="fontRate"></sa-table-column>
     <sa-table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></sa-table-column>
     <sa-table-column label="定宽100少" prop="fixedLess" width="100"></sa-table-column>
     <sa-table-column label="固定宽度100-多" prop="fixedMore" width="100"></sa-table-column>
@@ -35,10 +35,16 @@ import mockData from '../../mock/mockData'
 const data = reactive([
   ...mockData.tableData
 ])
+const fontRate = reactive({
+  CHAR_RATE: 1.5,
+  OTHER_RATE: 1.2
+})
+
 onMounted(() => {
   setTimeout(() => {
     data.push(...mockData.copyData)
-  }, 1000)
+    fontRate.CHAR_RATE = 20
+  }, 5000)
 })
 </script>
 <style></style>

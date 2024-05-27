@@ -13,11 +13,12 @@
     "self-adaption"
   ],
   "files": ["dist"],
+  "types": "./dist/index.d.ts",
   "main": "./dist/sa-table-column.umd.cjs",
   "module": "./dist/sa-table-column.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/sa-table-column.js",
       "require": "./dist/sa-table-column.umd.cjs"
     }

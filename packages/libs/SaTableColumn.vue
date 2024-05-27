@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
   defineOptions({ name: 'SaTableColumn' })
-import type { AsTableColumnProps } from 'packages/types';
+  import type { AsTableColumnFontRate, AsTableColumnProps } from 'packages/types';
   import { asTableColumnConfig, getColumnContentLength, transChar } from '../utils';
   import { computed, getCurrentInstance, nextTick, reactive, useAttrs, useSlots, watch } from 'vue'
 
@@ -32,7 +32,9 @@ import type { AsTableColumnProps } from 'packages/types';
   const { default: defaultSlot, header: headerSlot } = useSlots()
 
   const props = withDefaults(defineProps<AsTableColumnProps>(),{
-    label: () => '请设置label属性'
+    label: () => '请设置label属性',
+    fontSize: () => asTableColumnConfig.fontSize,
+    fontRate: () => asTableColumnConfig.fontRate,
   })
 
   const values = computed(() => {
@@ -54,11 +56,14 @@ import type { AsTableColumnProps } from 'packages/types';
   })
 
   const fontSize = computed(() => {
-    return asTableColumnConfig.fontSize
+    return props.fontSize || asTableColumnConfig.fontSize
   })
 
-  const fontRate = computed(() => {
-    return asTableColumnConfig.fontRate!
+  const fontRate = computed<AsTableColumnFontRate>(() => {
+    return {
+      ...asTableColumnConfig.fontRate!,
+      ...props.fontRate
+    }
   })
 
   const minWidth = computed(() => {
@@ -66,7 +71,6 @@ import type { AsTableColumnProps } from 'packages/types';
     const maxOne = Math.max(config.minLength, props.label.length * fontRate.value.CHAR_RATE) * fontSize.value! + 20
     return attrs.width || Math.max(maxOne, config.getComputedWidth);
   })
-
 
   watch(values, (newVal) => {
     isFit.value !== false && nextTick(() => {
