@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 900px;">
+  <div>
     <el-table border :data="data">
     <sa-table-column label="占位列" prop="placeholder" :fontRate="fontRate"></sa-table-column>
     <sa-table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></sa-table-column>

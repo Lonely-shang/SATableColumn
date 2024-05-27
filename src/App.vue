@@ -9,20 +9,19 @@ import type { TabsPaneContext } from 'element-plus'
 const activeNames = ref('all-fit')
 const change = (pane: TabsPaneContext, ev: Event) => {
   console.log(pane.paneName);
-  
 }
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <!-- <header> -->
+    <!-- <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
-  </header>
+  </header> -->
 
-  <main>
+  <div class="demo">
     <!-- <TheWelcome /> -->
     <el-tabs v-model="activeNames" @tab-click="change" type="border-card">
       <el-tab-pane label="全部自适应 (默认)" name="all-fit">
@@ -41,7 +40,7 @@ const change = (pane: TabsPaneContext, ev: Event) => {
         <part-fit />
       </el-tab-pane>
     </el-tabs>
-  </main>
+  </div>
 </template>
 
 <style scoped>
@@ -54,7 +53,12 @@ header {
   margin: 0 auto 2rem;
 }
 
-@media (min-width: 1024px) {
+.demo {
+  width: 100vw;
+  padding: 0 var(--section-gap);
+}
+
+/* @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -70,5 +74,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
+} */
 </style>

@@ -22,7 +22,6 @@
   import { computed, getCurrentInstance, nextTick, reactive, useAttrs, useSlots, watch } from 'vue'
 
   const instance = getCurrentInstance()?.parent as any;
-
   const config = reactive({
     minLength: 5,
     getComputedWidth: 0,
@@ -38,7 +37,7 @@
   })
 
   const values = computed(() => {
-    const data = instance?.ctx?.data as any[] || []
+    const data = instance?.proxy?.data as any[] || []
     return data.map(item => item[attrs.prop as string])
   })
 

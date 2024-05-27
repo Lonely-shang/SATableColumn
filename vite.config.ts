@@ -15,14 +15,19 @@ export default defineConfig({
     }),
   ],
   build: {
+    minify: 'terser',
     lib: {
       entry: path.resolve(__dirname, './packages/index.ts'),
       name: 'saTableColumn',
       fileName: 'sa-table-column',
     },
     rollupOptions: {
+      external: ['vue'],
       output: {
         exports: 'named',
+        globals: {
+          vue: 'Vue',
+        },
       }
     },
     terserOptions: {
